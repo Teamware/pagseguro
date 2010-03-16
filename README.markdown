@@ -81,6 +81,19 @@ Se você precisar, pode definir o tipo de frete com o método `shipping_type`.
 	@order.shipping_type = "EN" # PAC
 	@order.shipping_type = "FR" # Frete Próprio
 
+Caso você precise enviar os dados do cliente, eles podem ser definidos da seguinte maneira:
+
+ 	@order.billing_name = "Nome do Cliente"
+	@order.billing_address_zipcode = "CEP"
+	@order.billing_address_street = "Rua ou Lougradouro"
+	@order.billing_address_number = "Número"
+	@order.billing_address_complement = "Complemento"
+	@order.billing_address_neighbourhood = "Bairro"
+	@order.billing_address_city = "Cidade"
+	@order.billing_address_state = "UF"
+	@order.billing_address_country = "Pais"
+	@order.billing_email = "Email do Cliente"
+
 Depois que você definiu os produtos do pedido, você pode exibir o formulário.
 
 	<!-- app/views/cart/checkout.html.erb -->
