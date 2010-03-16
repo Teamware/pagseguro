@@ -6,7 +6,7 @@
 		<%= hidden_field_tag "ref_transacao", order.id %>
 		<%= hidden_field_tag "tipo_frete", order.shipping_type if order.shipping_type %>
 		<%= hidden_field_tag "encoding", options[:encoding] %>
-		
+
 		<% order.products.each_with_index do |product, i| %>
 			<% i += 1 %>
 			<%= hidden_field_tag "item_quant_#{i}", product[:quantity] %>
@@ -15,8 +15,24 @@
 			<%= hidden_field_tag "item_valor_#{i}", product[:price] %>
 			<%= hidden_field_tag "item_peso_#{i}", product[:weight].to_i %>
 			<%= hidden_field_tag "item_frete_#{i}", product[:shipping].to_i %>
-			
 		<% end %>
-		<%= submit_tag options[:submit] %>
+
+		<!-- INÍCIO DOS DADOS DO USUÁRIO -->
+		<%= hidden_field_tag "cliente_nome", order.billing_name if order.billing_name %>
+		<%= hidden_field_tag "cliente_cep", order.billing_address_zipcode %>
+		<%= hidden_field_tag "cliente_end", order.billing_address_street %>
+		<%= hidden_field_tag "cliente_num", order.billing_address_number %>
+		<%= hidden_field_tag "cliente_compl", order.billing_address_complement %>
+		<%= hidden_field_tag "cliente_bairro", order.billing_address_neighbourhood %>
+		<%= hidden_field_tag "cliente_cidade", order.billing_address_city %>
+		<%= hidden_field_tag "cliente_uf", order.billing_address_state %>
+		<%= hidden_field_tag "cliente_pais", order.billing_address_country %>
+		<%= hidden_field_tag "cliente_ddd", order.billing_phone_areacode %>
+		<%= hidden_field_tag "cliente_tel", order.billing_phone_number %>
+		<%= hidden_field_tag "cliente_email", order.billing_email %>
+		<!-- FIM DOS DADOS DO USUÁRIO -->
+			
+  
+		<%= submit_tag options[:submit], options[:submit_options] %>
 	</div>
 <% end %>

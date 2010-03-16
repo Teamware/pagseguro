@@ -1,5 +1,20 @@
 module PagSeguro
   class Order
+
+    attr_accessor :billing_name
+    attr_accessor :billing_address_zipcode
+    attr_accessor :billing_address_street
+    attr_accessor :billing_address_number
+    attr_accessor :billing_address_complement
+    attr_accessor :billing_address_neighbourhood
+    attr_accessor :billing_address_city
+    attr_accessor :billing_address_state
+    attr_accessor :billing_address_country
+    attr_accessor :billing_phone_areacode
+    attr_accessor :billing_phone_number
+    attr_accessor :billing_email
+
+
     # The list of products added to the order
     attr_accessor :products
 
